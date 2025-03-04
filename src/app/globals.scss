@@ -1,0 +1,153 @@
+@import "./shortStyles.scss";
+
+// SCROLLBAR
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: $transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $red500;
+  border-radius: 50px;
+}
+
+// RESET
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// GLOBAL
+body {
+  font-family: $fontMain;
+  width: 100%;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  body {
+    font-smoothing: antialiased;
+  }
+}
+
+main {
+  height: fit-content;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  font-family: $fontMain;
+
+  outline: none;
+  border: none;
+  cursor: pointer;
+
+  -webkit-tap-highlight-color: transparent;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+span {
+  -webkit-tap-highlight-color: transparent;
+  color: var(--color-secondary-white);
+  font-family: $fontMain;
+}
+
+img,
+div,
+p,
+span {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.red {
+  color: $red500 !important;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+.btn {
+  @include p-16-135_700;
+
+  outline: none;
+  padding: 17px 28px;
+  font-family: $fontMain;
+
+  border-radius: 10px;
+
+  @include screen-mb {
+    @include p-14-135_500;
+  }
+}
+
+.btn-primary {
+  @include p-16-135_700;
+
+  color: $gray0;
+  background: $red500;
+
+  @include screen-mb {
+    @include p-14-135_500;
+    color: $gray0;
+  }
+}
+
+.btn-secondary {
+  @include p-16-135_600;
+
+  color: $gray900;
+  background: transparent;
+  border: 1px solid $gray800;
+
+  @include screen-mb {
+    @include p-14-135_500;
+  }
+}
+
+.container {
+  @include flex(space-between, flex-start);
+  @include f-direction(row);
+
+  max-width: 1380px;
+  width: 100%;
+  padding-left: 30px;
+  padding-right: 30px;
+
+  @include screen-tb {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+.section-title {
+  @include h1-42-120_700;
+  color: $textPrimary;
+  text-transform: uppercase;
+
+  @include screen-mb {
+    @include h3-28-120_700;
+  }
+}
+
+.bold {
+  font-weight: 700;
+}

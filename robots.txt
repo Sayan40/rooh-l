@@ -1,0 +1,17 @@
+# Разрешаем всем роботам доступ к основным страницам
+User-agent: *
+Disallow: /_next/      # Блокируем системные файлы Next.js
+Disallow: /api/        # Блокируем API-эндпоинты
+Disallow: /static/     # Блокируем папку со статикой, если она не нужна для индексации
+
+# Указываем страницы, которые разрешены для индексации
+Allow: /                # Головна
+Allow: /franchise       # Франшиза
+Allow: /privacy-policy  # Політика конфіденційності
+Allow: /terms-of-service    # Умови використання
+Allow: /rental-agreement # Публічний договір
+Allow: /payment-policy  # Політика оплати
+
+# Указываем путь к карте сайта
+Sitemap: https://rooh.com.ua/api/sitemap
+

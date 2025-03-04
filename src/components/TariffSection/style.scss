@@ -1,0 +1,183 @@
+@import "@/src/app/shortStyles.scss";
+
+.tariff-section {
+  @include flex(center, center);
+  width: 100%;
+
+  background-image: url("/img/TariffSection/tariff-section-bg.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  .container {
+    @include flex(center, center);
+    @include f-direction(column);
+
+    gap: 45px;
+    padding-top: 75px;
+    padding-bottom: 75px;
+    max-width: 1080px;
+    z-index: 2;
+
+    @include screen-mb {
+      padding: 20px;
+    }
+  }
+
+  &__header {
+    @include flex(center, center);
+    @include f-direction(column);
+
+    max-width: 545px;
+    width: 100%;
+    gap: 15px;
+
+    .section-title {
+      @include h1-42-120_700;
+      color: $textPrimary;
+      text-align: center;
+    }
+
+    .section-description {
+      @include p-16-135_400;
+      color: $textPrimary;
+      text-align: center;
+    }
+  }
+
+  &__content {
+    @include flex(center, center);
+    @include f-direction(row);
+
+    width: 100%;
+    gap: 20px;
+
+    @include screen-tb {
+      gap: 10px;
+    }
+
+    @include screen-mb {
+      @include f-direction(column);
+      align-items: flex-start; // Для выравнивания элементов по левому краю на мобильных
+    }
+
+    .tariff-section__cards-left,
+    .tariff-section__cards-right {
+      @include flex(flex-start, flex-start);
+      @include f-direction(column);
+
+      gap: 25px;
+      max-width: 330px;
+      width: 100%;
+
+      padding-top: 25px;
+
+      @include screen-mb {
+        max-width: 100%;
+      }
+
+      .tariff-card {
+        @include flex(flex-start, center);
+        @include f-direction(row);
+
+        width: 100%;
+        gap: 20px;
+        padding: 15px;
+
+        background-color: $gray0;
+        border-radius: 10px;
+        border: 1px solid $gray600;
+
+        @include screen-tb {
+          padding: 10px;
+          gap: 10px;
+        }
+
+        img {
+          width: 64px;
+          height: 64px;
+
+          @include screen-tb {
+            width: 40px;
+            height: 40px;
+          }
+        }
+
+        &__info {
+          @include flex(flex-start, flex-start);
+          @include f-direction(column);
+
+          width: 100%;
+          gap: 5px;
+
+          h4 {
+            @include p-16-135_400;
+            color: $textSecondary;
+          }
+
+          h5 {
+            @include h3-28-120_700;
+            color: $textPrimary;
+          }
+        }
+      }
+    }
+
+    .tariff-section__cards-left {
+      @include screen-mb {
+        order: 2;
+      }
+    }
+
+    .tariff-section__cards-right {
+      @include screen-mb {
+        order: 3;
+      }
+    }
+
+    .tariff-section__scooter {
+      max-width: 382px;
+      width: 100%;
+      height: 100%;
+
+      position: relative;
+
+      .img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 50%;
+        transform: translate(50%, -50%);
+
+        width: 450px;
+        height: 450px;
+        border: 20px solid $red500;
+        border-radius: 500px;
+
+        z-index: -1;
+
+        @include screen-tb {
+          width: 250px;
+          height: 250px;
+        }
+      }
+
+      @include screen-mb {
+        order: 1;
+        margin-bottom: 20px; // Добавляем отступ снизу для разделения с карточками
+      }
+    }
+  }
+
+  &__link {
+    @include p-16-135_500_under;
+    color: $textSecondary;
+    text-align: center;
+  }
+}

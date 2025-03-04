@@ -1,0 +1,154 @@
+@import "@/src/app/shortStyles.scss";
+
+.franchise-creator-section {
+  @include flex(center, center);
+  width: 100%;
+
+  padding-top: 75px;
+  padding-bottom: 75px;
+
+  background-image: url("/img/primary_section_bg.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+
+  @include screen-mb {
+    padding-top: 45px;
+    padding-bottom: 45px;
+  }
+
+  .container {
+    @include flex(center, center);
+    @include f-direction(column);
+
+    max-width: 1380px;
+    width: 100%;
+
+    gap: 35px;
+
+    @include screen-tb {
+      @include flex(center, center);
+      flex-direction: column;
+      height: fit-content;
+    }
+
+    @include screen-mb {
+      @include f-direction(column);
+
+      gap: 35px;
+    }
+  }
+
+  &__info_block {
+    @include flex(flex-start, flex-start);
+    @include f-direction(column);
+
+    width: 100%;
+    max-width: 800px;
+
+    gap: 45px;
+
+    @include screen-tb {
+      max-width: 100%;
+      gap: 35px;
+    }
+  }
+
+  &__text-info {
+    @include flex(center, center);
+    @include f-direction(column);
+
+    width: 100%;
+    gap: 35px;
+
+    @include screen-mb {
+      @include flex(flex-start, flex-start);
+      gap: 25px;
+    }
+  }
+
+  &__content {
+    @include flex(center, center);
+    @include f-direction(column);
+    width: 100%;
+    gap: 15px;
+
+    @include screen-mb {
+      @include flex(flex-start, flex-start);
+    }
+  }
+
+  &__words {
+    @include h4-24-120_500;
+    text-align: center;
+    color: $textPrimary;
+
+    @include screen-mb {
+      text-align: left;
+      @include p-20-120_400;
+    }
+  }
+
+  &__name {
+    @include h4-24-120_700;
+    color: $textPrimary;
+
+    @include screen-mb {
+      @include p-20-120_700;
+    }
+  }
+
+  &__role {
+    @include p-16-135_600;
+
+    @include screen-mb {
+      @include p-14-135_600;
+    }
+  }
+
+  &__img-box {
+    max-width: 245px;
+    width: 100%;
+
+    position: relative;
+
+    @include screen-mb {
+      max-width: 175px;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 500px;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: 50%;
+      transform: translate(50%, -51%);
+
+      width: 102%;
+      height: 102%;
+      border: 1px solid $gray600;
+      border-radius: 500px;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: -50px;
+      transform: translateX(50%);
+
+      width: 50px;
+      height: 50px;
+
+      background-image: url("/icons/FranchiseCreatorSection/quote.svg");
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+  }
+}

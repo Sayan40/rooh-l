@@ -1,0 +1,163 @@
+@import "@/src/app/shortStyles.scss";
+
+.footer {
+  @include flex(center, center);
+  width: 100%;
+  padding: 0 25px;
+
+  background-color: $gray50;
+
+  .container {
+    @include flex(center, center);
+    @include f-direction(column);
+
+    gap: 35px;
+    padding: 55px 0 25px 0;
+    max-width: 1380px;
+
+    .top-section {
+      @include flex(space-between, flex-start);
+      @include f-direction(row);
+
+      width: 100%;
+
+      padding-bottom: 35px;
+      border-bottom: 1px solid $gray100;
+
+      @include screen-tb {
+        @include flex(center, flex-start);
+        @include f-direction(column);
+        gap: 25px;
+      }
+
+      @include screen-mb {
+        @include flex(center, flex-start);
+        @include f-direction(column);
+        gap: 35px;
+      }
+
+      .left-section {
+        width: fit-content;
+      }
+
+      .right-section {
+        @include flex(flex-start, flex-start);
+        @include f-direction(row);
+
+        gap: 55px;
+        width: fit-content;
+
+        @include screen-tb {
+          flex-direction: column;
+          gap: 25px;
+        }
+
+        .contact-section {
+          @include flex(flex-start, flex-start);
+          @include f-direction(column);
+          gap: 15px;
+
+          h3 {
+            @include p-16-135_700;
+            color: $textPrimary;
+          }
+
+          .contact-box {
+            @include flex(flex-start, flex-start);
+            @include f-direction(column);
+            gap: 12px;
+
+            .contact-info {
+              @include flex(flex-start, center);
+              @include f-direction(row);
+              gap: 10px;
+
+              @include p-16-135_400;
+            }
+          }
+        }
+
+        .social-section {
+          @include flex(flex-start, flex-start);
+          @include f-direction(column);
+          gap: 15px;
+
+          h3 {
+            @include p-16-135_700;
+            color: $textPrimary;
+          }
+
+          .social-box {
+            @include flex(flex-start, flex-start);
+            @include f-direction(row);
+            gap: 15px;
+          }
+        }
+
+        .download-section {
+          @include flex(flex-start, flex-start);
+          @include f-direction(column);
+          gap: 15px;
+
+          h3 {
+            @include p-16-135_700;
+            color: $textPrimary;
+          }
+
+          .download-box {
+            @include flex(flex-start, flex-start);
+            @include f-direction(row);
+            gap: 10px;
+          }
+        }
+      }
+    }
+
+    .bottom-section {
+      @include flex(space-between, center);
+      @include f-direction(row);
+
+      width: 100%;
+
+      @include screen-tb {
+        flex-direction: column-reverse;
+        gap: 25px;
+      }
+
+      @include screen-mb {
+        @include flex(center, flex-start);
+        @include f-direction(column-reverse);
+        gap: 35px;
+      }
+
+      .left-section {
+        width: fit-content;
+
+        .copyright {
+          @include p-14-135_400;
+          color: $textSecondary;
+        }
+      }
+
+      .right-section {
+        @include flex(flex-end, center);
+        @include f-direction(row);
+
+        gap: 20px;
+        width: fit-content;
+
+        @include screen-mb {
+          @include flex(center, flex-start);
+          @include f-direction(column-reverse);
+
+          gap: 20px;
+        }
+
+        a {
+          @include p-14-135_500_under;
+          color: $textSecondary;
+        }
+      }
+    }
+  }
+}

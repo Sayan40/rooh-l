@@ -1,0 +1,290 @@
+@import "@/src/app/shortStyles.scss";
+
+header {
+  @include flex(center, center);
+  width: 100%;
+  padding: 20px 0;
+
+  position: fixed;
+  top: 0;
+  background-color: $gray0;
+
+  z-index: 1000;
+
+  @include screen-tb {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+
+  .container {
+    @include flex(space-between, center);
+    @include f-direction(row);
+
+    width: 100%;
+    max-width: 1380px;
+
+    .logo-link {
+      width: 94px;
+      height: 42px;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      @include screen-tb {
+        width: 57px;
+        height: 25px;
+      }
+    }
+
+    nav {
+      @include flex(center, center);
+      @include f-direction(row);
+
+      width: fit-content;
+      gap: 35px;
+
+      a {
+        @include p-16-135_400;
+        text-decoration: none;
+        color: $gray900;
+        transition: 0.1s;
+        cursor: pointer;
+
+        &:hover {
+          color: $red500;
+        }
+
+        &.active {
+          color: $red500;
+          font-weight: 500;
+          transition: 0.1s;
+        }
+      }
+    }
+
+    .content {
+      @include flex(center, center);
+      gap: 20px;
+
+      @include screen-tb {
+        gap: 15px;
+      }
+
+      .download-btns {
+        @include flex(center, center);
+        gap: 10px;
+
+        .download-btn {
+          width: 136px;
+          height: 40px;
+        }
+      }
+
+      .lang-select {
+        position: relative;
+        cursor: pointer;
+        @include flex(center, center);
+        @include f-direction(row);
+        gap: 5px;
+        padding: 10px;
+        width: 98px;
+        transition: background-color 0.3s;
+
+        @include screen-tb {
+          width: 85px;
+          padding: 5px;
+        }
+
+        // Background when dropdown is open
+        &.active {
+          background-color: $gray50;
+          border-radius: 5px;
+        }
+
+        .selected {
+          @include flex(center, center);
+          @include f-direction(row);
+          gap: 7px;
+        }
+
+        // Dropdown
+        .dropdown {
+          @include flex(flex-start, center);
+          @include f-direction(column);
+          gap: 10px;
+
+          position: absolute;
+          top: calc(100% + 5px);
+          left: 0;
+          background-color: $gray50;
+          z-index: 1000;
+          width: 98px;
+          padding: 9px 10px;
+          border-radius: 5px;
+
+          // Animation
+          visibility: hidden;
+          opacity: 0;
+          transition: opacity 0.1s ease, visibility 0.1s ease;
+
+          &.open {
+            visibility: visible;
+            opacity: 1;
+          }
+
+          .dropdown-item {
+            @include flex(center, center);
+            @include f-direction(row);
+            gap: 7px;
+            padding: 0 20px 0 0;
+            cursor: pointer;
+            transition: 0.3s;
+
+            &:hover {
+              transform: scale(1.03);
+              transition: 0.3s;
+            }
+
+            p {
+              text-transform: uppercase;
+            }
+          }
+        }
+      }
+
+      #menu-trigger {
+        width: 24px;
+        height: 18px;
+        margin: 4px;
+        position: relative;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        span {
+          background: $gray900;
+          display: block;
+          position: absolute;
+          height: 2px;
+          border-radius: 4px;
+          width: 100%;
+          transition: all 0.3s ease;
+        }
+
+        span:nth-child(1) {
+          top: 0px;
+        }
+
+        span:nth-child(2),
+        span:nth-child(3) {
+          top: 9px;
+        }
+
+        span:nth-child(4) {
+          top: 18px;
+        }
+
+        &.open {
+          span:nth-child(1) {
+            top: 13px;
+            width: 0%;
+            left: 50%;
+          }
+
+          span:nth-child(2) {
+            transform: rotate(45deg);
+          }
+
+          span:nth-child(3) {
+            transform: rotate(-45deg);
+          }
+
+          span:nth-child(4) {
+            top: 13px;
+            width: 0%;
+            left: 50%;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Mobile Menu Styles
+.mobile-menu {
+  position: fixed;
+  top: 60px; // Height of the header
+  left: 0;
+  width: 100%;
+  height: calc(100dvh - 60px);
+  background-color: $gray0;
+  overflow-y: auto;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  z-index: 999;
+
+  &.open {
+    transform: translateX(0);
+  }
+
+  .container {
+    @include flex(space-between, flex-start);
+    @include f-direction(column);
+
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+
+    nav {
+      @include flex(center, flex-start);
+      @include f-direction(column);
+
+      width: 100%;
+      gap: 25px;
+
+      a {
+        @include p-16-135_400;
+        text-decoration: none;
+        color: $gray900;
+        transition: 0.1s;
+
+        &:hover {
+          color: $red500;
+        }
+
+        &.active {
+          color: $red500;
+          font-weight: 500;
+          transition: 0.1s;
+        }
+      }
+    }
+
+    .download-section {
+      @include flex(center, flex-start);
+      @include f-direction(column);
+      gap: 20px;
+
+      .download-box {
+        @include flex(flex-start, center);
+        @include f-direction(row);
+        gap: 15px;
+      }
+    }
+  }
+}
+
+// Media Queries
+@media (min-width: 1201px) {
+  header .container .content #menu-trigger {
+    display: none;
+  }
+
+  .mobile-menu {
+    display: none;
+  }
+}

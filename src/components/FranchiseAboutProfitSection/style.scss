@@ -1,0 +1,75 @@
+@import "@/src/app/shortStyles.scss";
+
+.about-profit-section {
+  @include flex(center, center);
+  width: 100%;
+
+  background-image: url("/img/FranchiseAboutProfitSection/bg-01-lg.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  @include screen-mb {
+    background-image: url("/img/FranchiseAboutProfitSection/bg-01-sm.webp");
+  }
+
+  .container {
+    @include flex(center, center);
+    @include f-direction(column);
+
+    gap: 35px;
+    padding: 75px 15px;
+
+    max-width: 815px;
+    width: 100%;
+
+    @include screen-mb {
+      gap: 12px;
+      padding: 55px 25px;
+    }
+  }
+
+  .btn-primary {
+    @include screen-mb {
+      @include flex(center, center);
+      width: 100%;
+    }
+  }
+
+  &__title {
+    @include h3-28-120_500;
+    color: $textPrimary;
+
+    @include screen-mb {
+      @include p-24-120_500;
+    }
+  }
+
+  &__numbers {
+    color: $textPrimary;
+    text-align: center;
+    font-family: $fontMain;
+    font-size: 124px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%; /* 62.4px */
+
+    @include screen-tb {
+      font-size: 68px;
+    }
+
+    @include screen-mb {
+      font-size: 48px;
+    }
+  }
+
+  &__description {
+    color: $textSecondary;
+    @include p-16-135_400;
+    text-align: center;
+
+    @include screen-mb {
+      @include p-14-135_400;
+    }
+  }
+}

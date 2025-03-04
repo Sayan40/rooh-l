@@ -1,0 +1,208 @@
+@import "@/src/app/shortStyles.scss";
+
+.franchise-git-section {
+  @include flex(center, center);
+  width: 100%;
+
+  padding-top: 80px;
+  padding-bottom: 110px;
+
+  background-color: $gray900;
+  overflow: hidden;
+
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -45%;
+    left: -15%;
+
+    width: 553px;
+    height: 553px;
+
+    border-radius: 500px;
+
+    border: 20px solid $red500;
+
+    @include screen-tb {
+      display: none;
+    }
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    width: 595px;
+    height: 524px;
+
+    background-image: url("/img/franchise_git_section_bg_lg.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    @include screen-tb {
+      right: 50%;
+      transform: translateX(50%);
+      width: 350px;
+      height: 308px;
+      background-image: url("/img/franchise_git_section_bg_sm.webp");
+    }
+  }
+
+  @include screen-tb {
+    padding-top: 45px;
+    padding-bottom: 330px;
+  }
+
+  .container {
+    @include flex(center, center);
+    @include f-direction(column);
+
+    max-width: 1380px;
+    width: 100%;
+
+    gap: 55px;
+
+    @include screen-tb {
+      @include flex(center, center);
+      flex-direction: column;
+      height: fit-content;
+    }
+
+    @include screen-mb {
+      @include f-direction(column);
+
+      gap: 35px;
+    }
+  }
+
+  &__title-box {
+    @include flex(center, center);
+    @include f-direction(column);
+
+    width: 100%;
+    max-width: 700px;
+    text-align: center;
+    gap: 15px;
+
+    z-index: 2;
+  }
+
+  &__title {
+    @include h1-42-120_700;
+    color: $gray0;
+
+    @include screen-tb {
+      color: $gray200;
+    }
+
+    @include screen-mb {
+      @include h3-28-120_700;
+      color: $gray0;
+    }
+  }
+
+  &__description {
+    @include p-16-135_400;
+    color: $gray200;
+
+    @include screen-tb {
+      color: $gray200;
+    }
+
+    @include screen-mb {
+      @include p-14-135_400;
+      color: $gray200;
+    }
+  }
+
+  &__form {
+    @include flex(center, center);
+    @include f-direction(column);
+
+    max-width: 450px;
+    width: 100%;
+    gap: 35px;
+
+    z-index: 2;
+  }
+
+  &__inputs-container {
+    @include flex(center, center);
+    @include f-direction(column);
+
+    width: 100%;
+    gap: 20px;
+
+    @include screen-mb {
+      gap: 15px;
+    }
+  }
+
+  &__input-wrapper {
+    position: relative;
+    width: 100%;
+  }
+
+  &__input {
+    @include p-16-135_400;
+    color: $gray0;
+    background-color: $gray900;
+    outline: none;
+    border: 1px solid $gray700;
+    border-radius: 10px;
+    padding: 17px 20px;
+    width: 100%;
+    transition: all 0.3s ease;
+
+    @include screen-mb {
+      @include p-14-135_400;
+      padding: 15px;
+    }
+
+    &::placeholder {
+      @include p-16-135_400;
+      color: $gray700;
+      transition: all 0.3s ease;
+    }
+
+    &:focus {
+      border: 1px solid $red500;
+      transition: all 0.3s ease;
+      color: $gray0;
+
+      &::placeholder {
+        @include p-16-135_400;
+        color: $gray500;
+        transition: all 0.3s ease;
+      }
+    }
+
+    &:hover {
+      border: 1px solid $red500;
+      transition: all 0.3s ease;
+    }
+
+    &.error {
+      border: 1px solid $red500;
+    }
+  }
+
+  &__error {
+    color: $red500;
+    font-size: 12px;
+    margin-top: 5px;
+    position: absolute;
+    bottom: -17px;
+    left: 0;
+  }
+
+  .btn {
+    width: 100%;
+    transition: all 0.3s ease;
+  }
+}

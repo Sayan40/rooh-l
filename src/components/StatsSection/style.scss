@@ -1,0 +1,74 @@
+@import "@/src/app/shortStyles.scss";
+
+.stats-section {
+  @include flex(center, center);
+  padding: 45px 0;
+  background-color: $gray900;
+
+  @include screen-mb {
+    padding: 20px 0;
+  }
+
+  .container {
+    @include flex(space-between, flex-start);
+    @include f-direction(row);
+
+    max-width: 930px;
+    width: 100%;
+
+    .section-title {
+      text-align: center;
+      font-size: 34px;
+      font-weight: 700;
+      color: $gray900;
+    }
+
+    .stats-cards {
+      @include flex(space-between, center);
+      @include f-direction(row);
+
+      width: 100%;
+      gap: 40px;
+
+      @include screen-mb {
+        @include flex(center, center);
+        @include f-direction(column);
+        gap: 35px;
+      }
+
+      .stats-card {
+        @include flex(center, center);
+        @include f-direction(column);
+
+        gap: 15px;
+
+        width: 220px;
+        border-radius: 10px;
+        padding: 20px;
+        text-align: center;
+
+        .icon-box {
+          max-width: 120px;
+          width: 100%;
+          height: 100%;
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+          }
+        }
+
+        .stats-number {
+          @include h2-34-120_700;
+          color: $gray0;
+        }
+
+        .stats-title {
+          @include p-16-135_400;
+          color: $gray200;
+        }
+      }
+    }
+  }
+}

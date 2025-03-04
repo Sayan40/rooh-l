@@ -1,0 +1,175 @@
+@import "@/src/app/shortStyles.scss";
+
+.franchise-hit-section {
+  @include flex(center, center);
+  position: relative;
+  width: 100%;
+  padding-top: 75px;
+  padding-bottom: 100px;
+  background-color: $gray50;
+
+  @include screen-tb {
+    padding-top: 45px;
+    padding-bottom: 45px;
+  }
+
+  .container {
+    @include flex(space-between, flex-start);
+    flex-direction: row;
+    width: 100%;
+    position: relative;
+
+    @include screen-tb {
+      @include flex(center, center);
+      flex-direction: column;
+      height: fit-content;
+      gap: 35px;
+    }
+
+    @include screen-mb {
+      @include flex(flex-start, flex-start);
+    }
+  }
+
+  .progress-bar {
+    position: absolute;
+    left: 15px;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background-color: $gray200;
+    border-radius: 2px;
+
+    &__fill {
+      width: 100%;
+      background-color: $red500;
+      height: 0;
+      transition: height 0.3s ease;
+      position: relative;
+
+      &:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 28px;
+        height: 28px;
+        background-color: $red500;
+        border-radius: 30px;
+
+        @include screen-tb {
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+  }
+
+  &__title-box {
+    @include flex(center, flex-start);
+    flex-direction: column;
+    width: 100%;
+    max-width: 515px;
+    text-align: left;
+    gap: 15px;
+    z-index: 2;
+  }
+
+  &__title {
+    @include h1-42-120_700;
+    color: $textPrimary;
+
+    @include screen-tb {
+      text-align: center;
+    }
+
+    @include screen-mb {
+      @include h3-28-120_700;
+    }
+  }
+
+  &__description {
+    @include p-16-135_400;
+    color: $textSecondary;
+
+    @include screen-tb {
+      text-align: center;
+    }
+
+    @include screen-mb {
+      @include p-14-135_400;
+    }
+  }
+
+  &__slider {
+    width: fit-content;
+    height: 550px;
+    margin: 0 !important;
+    padding-left: 85px;
+
+    @include screen-tb {
+      width: 100%;
+      padding-left: 40px;
+      height: 55dvh;
+    }
+
+    .swiper-slide {
+      max-width: 515px;
+      width: 100%;
+      opacity: 0.5;
+      transition: opacity 0.3s ease;
+
+      &:last-child {
+        opacity: 0;
+      }
+    }
+
+    .swiper-slide-active {
+      opacity: 1;
+    }
+  }
+
+  &__card {
+    @include flex(flex-start, flex-start);
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .number {
+    @include display-60-120_700;
+    color: $red500;
+
+    @include screen-tb {
+      font-size: 52px;
+    }
+  }
+
+  .text-info {
+    @include flex(flex-start, flex-start);
+    flex-direction: column;
+    gap: 15px;
+
+    @include screen-tb {
+      font-size: 10px;
+    }
+  }
+
+  .title {
+    @include h3-28-120_700;
+    color: $textPrimary;
+
+    @include screen-tb {
+      @include p-20-120_700;
+    }
+  }
+
+  .description {
+    @include p-16-135_400;
+    color: $textSecondary;
+
+    @include screen-tb {
+      @include p-14-135_400;
+    }
+  }
+}

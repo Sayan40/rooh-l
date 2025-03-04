@@ -1,0 +1,184 @@
+@import "@/src/app/shortStyles.scss";
+
+.our-equipment-section {
+  @include flex(center, center);
+  width: 100%;
+  height: fit-content;
+
+  .container {
+    @include flex(center, center);
+    @include f-direction(column);
+
+    gap: 55px;
+    padding: 100px 15px;
+
+    @include screen-mb {
+      gap: 35px;
+      padding: 55px 25px;
+    }
+  }
+
+  .btn-primary {
+    @include screen-mb {
+      @include flex(center, center);
+      width: 100%;
+    }
+  }
+
+  &__title-box {
+    @include flex(center, center);
+    @include f-direction(column);
+
+    gap: 15px;
+
+    max-width: 670px;
+    width: 100%;
+    text-align: center;
+  }
+
+  &__description {
+    @include p-16-135_400;
+    color: $textSecondary;
+    text-align: center;
+
+    @include screen-mb {
+      @include p-14-135_400;
+    }
+  }
+
+  &__cards-container {
+    @include flex(center, center);
+    @include f-direction(row);
+
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 60px 20px;
+
+    @include screen-mb {
+      gap: 25px;
+    }
+  }
+
+  &__card {
+    @include flex(center, center);
+    @include f-direction(row);
+
+    width: 100%;
+    height: 430px;
+
+    gap: 25px;
+
+    @include screen-tb {
+      height: 450px;
+    }
+
+    @include screen-mb {
+      flex-direction: column;
+      height: fit-content;
+    }
+  }
+
+  &__img-box {
+    max-width: 50%;
+    width: 100%;
+    height: 100%;
+
+    position: relative;
+
+    @include screen-mb {
+      max-width: 100%;
+    }
+
+    .img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 1px solid $gray600;
+    }
+  }
+
+  &__card-info {
+    @include flex(space-between, flex-start);
+    @include f-direction(column);
+
+    width: 100%;
+    height: 100%;
+    gap: 45px;
+
+    padding: 45px 35px;
+
+    border-radius: 10px;
+    border: 1px solid $gray600;
+
+    @include screen-tb {
+      gap: 15px;
+      padding: 25px;
+    }
+
+    @include screen-mb {
+      gap: 35px;
+      padding: 25px;
+    }
+  }
+
+  &__card-characteristics {
+    @include flex(flex-start, flex-start);
+    @include f-direction(column);
+
+    gap: 25px;
+    width: 100%;
+  }
+
+  &__card-model {
+    @include h2-34-120_700;
+    color: $textPrimary;
+
+    @include screen-tb {
+      @include h4-24-120_700;
+    }
+  }
+
+  &__card-characteristics-list {
+    @include flex(flex-start, flex-start);
+    @include f-direction(column);
+
+    width: 100%;
+    gap: 12px;
+  }
+
+  &__card-characteristics-list-item {
+    @include flex(flex-start, center);
+    @include f-direction(row);
+
+    width: 100%;
+    gap: 12px;
+
+    @include screen-tb {
+      @include flex(space-between, center);
+    }
+  }
+
+  .characteristics-name {
+    @include p-16-135_400;
+    color: $textSecondary;
+
+    width: 40%;
+
+    @include screen-mb {
+      @include p-14-135_400;
+      width: 100%;
+    }
+  }
+
+  .characteristics-value {
+    @include p-16-135_600;
+    color: $textPrimary;
+    width: 60%;
+
+    @include screen-mb {
+      @include p-14-135_600;
+      width: 100%;
+    }
+  }
+}

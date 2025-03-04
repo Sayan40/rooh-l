@@ -1,0 +1,299 @@
+@import "@/src/app/shortStyles.scss";
+
+.how-it-works-section {
+  @include flex(center, center);
+  @include f-direction(column);
+  width: 100%;
+
+  padding-top: 75px;
+  padding-bottom: 75px;
+
+  .section-title {
+    width: 100%;
+    text-align: center;
+    padding-bottom: 35px;
+    border-bottom: 1px solid $gray150;
+
+    @include screen-mb {
+      border-bottom: none;
+    }
+  }
+
+  @include screen-mb {
+    padding: 20px 0;
+  }
+
+  // **Десктопная версия**
+  &__container {
+    @include flex(center, center);
+
+    width: 100%;
+    gap: 155px;
+
+    padding: 0 25px;
+
+    @include screen-tb {
+      gap: 25px;
+    }
+
+    .pagination-container {
+      @include flex(flex-start, center);
+      @include f-direction(column);
+
+      gap: 20px;
+      padding-top: 25px;
+
+      max-width: 655px;
+      width: 100%;
+      height: 770px;
+
+      overflow-y: auto;
+
+      box-sizing: border-box;
+
+      position: relative;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      .pagination-item {
+        @include flex(center, flex-end);
+        @include f-direction(column);
+
+        width: 100%;
+        gap: 12px;
+        padding: 25px;
+
+        cursor: pointer;
+
+        border-radius: 10px;
+        border: 1px solid $gray900;
+
+        opacity: 0.5;
+        transition: opacity 0.3s;
+
+        &:last-child {
+          margin-bottom: 15px !important;
+        }
+
+        &.active {
+          opacity: 1;
+          transition: opacity 0.3s;
+        }
+
+        .text-info {
+          @include flex(flex-start, center);
+          @include f-direction(row);
+
+          width: 100%;
+          gap: 25px;
+
+          .number {
+            @include flex(center, center);
+            @include h4-24-120_700;
+
+            width: 42px;
+            height: 42px;
+            border-radius: 50px;
+            background-color: $red500;
+            color: $gray0;
+            flex-shrink: 0;
+          }
+
+          .title {
+            @include h3-28-120_700;
+            font-weight: 600;
+          }
+        }
+
+        .description {
+          @include p-16-135_400;
+          color: $textSecondary;
+          max-width: 536px;
+          width: 100%;
+        }
+      }
+    }
+
+    .how-it-works-section__slider {
+      max-width: 655px;
+      width: 100%;
+      height: 600px;
+      position: relative;
+
+      margin: 0;
+
+      .swiper-slide {
+        @include flex(center, center);
+        @include f-direction(row);
+        width: 100%;
+        height: 100%;
+
+        .image-wrapper {
+          position: relative;
+          width: 100%;
+          height: 100%;
+        }
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+      }
+
+      .swiper-wrapper {
+        height: 100%;
+      }
+      .swiper-pagination-bullets-dynamic {
+        display: none;
+      }
+    }
+  }
+
+  // **Мобильная версия**
+  .accordion-container {
+    display: none;
+
+    @include screen-mb {
+      @include flex(center, center);
+      @include f-direction(column);
+
+      gap: 10px;
+      width: 100%;
+      padding: 0 20px;
+
+      .accordion-item {
+        border: 1px solid $gray900;
+        border-radius: 10px;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+
+        .accordion-header {
+          @include flex(space-between, center);
+          cursor: pointer;
+          padding: 20px;
+          background-color: $gray0;
+
+          .header-content {
+            @include flex(flex-start, center);
+            gap: 15px;
+
+            max-width: 240px;
+            width: 100%;
+
+            .number {
+              @include flex(center, center);
+              @include p-20-120_700;
+
+              width: 32px;
+              height: 32px;
+              border-radius: 50px;
+              background-color: $red500;
+              color: $gray0;
+              flex-shrink: 0;
+            }
+
+            .title {
+              @include p-20-120_700;
+              font-weight: 600;
+            }
+          }
+
+          .icon {
+            position: relative;
+            width: 24px;
+            height: 24px;
+            transition: transform 0.3s ease;
+
+            span {
+              position: absolute;
+              background-color: $gray900;
+              border-radius: 2px;
+
+              &:first-child {
+                width: 100%;
+                height: 2px;
+                top: 50%;
+                left: 0;
+                transform: translateY(-50%);
+              }
+
+              &:last-child {
+                width: 2px;
+                height: 100%;
+                top: 0;
+                left: 50%;
+                transform: translateX(-50%);
+              }
+            }
+
+            &.rotated {
+              transform: rotate(90deg);
+            }
+          }
+        }
+
+        .accordion-body {
+          @include flex(flex-start, center);
+          @include f-direction(column);
+
+          gap: 12px;
+          width: 100%;
+
+          padding: 0 20px 0 20px;
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 0.3s ease;
+          transition: all 0.3s;
+
+          .image-wrapper {
+            width: 100%;
+            margin-bottom: 15px;
+
+            img {
+              width: 100%;
+              height: auto;
+              object-fit: contain;
+            }
+          }
+
+          .description {
+            @include p-14-135_400;
+            color: $textSecondary;
+          }
+        }
+
+        &.active {
+          .accordion-body {
+            padding: 0 20px 20px 20px;
+            max-height: 1000px; // Достаточно большое значение для контента
+            transition: all 0.3s;
+          }
+
+          .icon {
+            transform: rotate(90deg);
+
+            span {
+              position: absolute;
+              background-color: $gray900;
+              border-radius: 2px;
+
+              &:first-child {
+                opacity: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Скрываем десктопную версию на мобильных
+  @include screen-mb {
+    &__container {
+      display: none;
+    }
+  }
+}

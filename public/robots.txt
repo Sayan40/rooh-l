@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://rooh.com.ua
+
+# Sitemaps
+Sitemap: https://rooh.com.ua/sitemap.xml
