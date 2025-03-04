@@ -59,7 +59,7 @@ export default function Home({ images }: { images: string[] }) {
         pageTitle={t("main_page_title")}
         pageDescription={t("main_page_description")}
       />
-
+<div>123</div>
       {/*<Script id="redirect-script" strategy="afterInteractive">*/}
       {/*  {`*/}
       {/*    (function () {*/}
