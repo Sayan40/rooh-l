@@ -28,12 +28,17 @@ export default function Home({ images }: { images: string[] }) {
     const qr = query?.qr;
 
     useEffect(() => {
+        console.log('test')
+
         if (!qr) return;
 
         if (typeof window === "undefined") return;
 
         const userAgent =
             navigator.userAgent || navigator.vendor || (window as any).opera;
+
+        console.log(userAgent)
+
         const isIOS = /iPad|iPhone|iPod/.test(userAgent);
         const isAndroid = /android/i.test(userAgent);
 
