@@ -1,1 +1,0 @@
-self.__SSG_MANIFEST=new Set(["\u002F","\u002Ffranchise","\u002Fpayment-policy","\u002Fprivacy-policy","\u002Frental-agreement","\u002Fterms-of-service"]);self.__SSG_MANIFEST_CB&&self.__SSG_MANIFEST_CB()
